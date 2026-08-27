@@ -15,15 +15,13 @@ import demand_prediction
 models.Base.metadata.create_all(bind=engine)
 
 app = FastAPI()
-
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["http://localhost:5173"],
+    allow_origins=["*"],  # Sabhi domains (Vercel உட்பட) ko allow karne ke liye
     allow_credentials=True,
     allow_methods=["*"],
     allow_headers=["*"],
 )
-
 def get_db():
     db = SessionLocal()
     try:
