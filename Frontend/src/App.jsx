@@ -16,6 +16,8 @@ import SettingsView from './components/SettingsView';
 import Sidebar from './components/Sidebar';
 
 export default function App() {
+  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://127.0.0.1:8000';
+
   // Authentication & Navigation States
   const [isAuthenticated, setIsAuthenticated] = useState(false);
   const [authMode, setAuthMode] = useState('signin'); // 'signin' or 'signup'
@@ -43,7 +45,7 @@ export default function App() {
 
   // Fetch summary analytics from backend
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/analytics/summary')
+    fetch(`${API_URL}/analytics/summary`)
       .then((res) => {
         if (!res.ok) throw new Error('Network response was not ok');
         return res.json();
@@ -63,8 +65,8 @@ export default function App() {
     e.preventDefault();
     setAuthError('');
     setAuthLoading(true);
-    try {
-      const res = await fetch('http://127.0.0.1:8000/auth/login', {
+   try {
+      const res = await fetch(`${API_URL}/auth/login`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email: loginEmail, password: loginPassword })
