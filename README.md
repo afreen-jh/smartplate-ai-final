@@ -2,6 +2,12 @@
 
 An AI-powered platform for college canteens and hostel messes that predicts meal demand, detects food waste anomalies, and helps kitchen staff plan production more efficiently — reducing over-preparation and unnecessary waste.
 
+# SmartPlate AI - Campus Canteen Management Ecosystem
+
+> **Live Deployment:** [smartplate-ai-final.vercel.app](https://smartplate-ai-final.vercel.app)
+
+[![Vercel Deployment](https://img.shields.io/badge/Status-Live%20on%20Vercel-success?style=for-the-badge&logo=vercel)](https://smartplate-ai-final.vercel.app)
+
 ## What It Does
 
 - Predicts demand for upcoming meals using a trained machine learning model, so kitchens prepare closer to what's actually needed
