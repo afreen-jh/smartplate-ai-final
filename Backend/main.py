@@ -323,4 +323,27 @@ def get_analytics_insights(db: Session = Depends(get_db)):
         "attendanceMatch": attendance_match,
         "peakMarginWindow": peak_window
     }
+@app.get("/insights")
+def get_insights(db: Session = Depends(get_db)):
+    return {
+        "weekly_waste_variance_reduction": "14.2%",
+        "canteen_attendance_baseline_predictor": "94.8% Match",
+        "peak_dynamic_margin_window": "Dinner Peak (+22%)"
+    }
+
+@app.get("/alerts")
+def get_alerts(db: Session = Depends(get_db)):
+    return [
+        {"id": 1, "message": "Anomaly: +35 extra plates prepared for Breakfast.", "severity": "high", "time": "Today, 8:30 AM"},
+        {"id": 2, "message": "High Waste Alert: 18% rice wasted during Lunch.", "severity": "warning", "time": "Today, 2:15 PM"},
+        {"id": 3, "message": "AI Rec: Reduce dinner prep by 12% to optimize yield.", "severity": "info", "time": "Today, 5:00 PM"}
+    ]
+
+@app.get("/menu")
+def get_menu_plans(db: Session = Depends(get_db)):
+    return [
+        {"meal_timing": "Breakfast", "menu_item": "Aloo Paratha & Curd", "base_plate_count": 120, "ai_variance_factor": "+5%", "target_production_optimization": "126 Plates"},
+        {"meal_timing": "Lunch", "menu_item": "Dal Tadka & Jeera Rice", "base_plate_count": 250, "ai_variance_factor": "-8%", "target_production_optimization": "230 Plates"},
+        {"meal_timing": "Dinner", "menu_item": "Paneer Butter Masala", "base_plate_count": 200, "ai_variance_factor": "+2%", "target_production_optimization": "204 Plates"}
+    ]
 
