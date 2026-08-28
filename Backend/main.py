@@ -17,10 +17,10 @@ models.Base.metadata.create_all(bind=engine)
 app = FastAPI()
 app.add_middleware(
     CORSMiddleware,
-    allow_origins=["*"],  # Sabhi domains (Vercel உட்பட) ko allow karne ke liye
+    allow_origins=["*"],  # Allows all origins including your Vercel deployment
     allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
+    allow_methods=["*"],  # Allows all methods (GET, POST, PUT, DELETE, etc.)
+    allow_headers=["*"],  # Allows all headers
 )
 def get_db():
     db = SessionLocal()
