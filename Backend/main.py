@@ -246,6 +246,14 @@ def signup(user: schemas.UserSignup, db: Session = Depends(get_db)):
 
     token = create_access_token(sub=new_user.email)
     return schemas.TokenOut(access_token=token, user=new_user)
+@app.get("/admin/seed-db")
+def trigger_seed(db: Session = Depends(get_db)):
+    try:
+        from seed_data import run_seed
+        run_seed()
+        return {"message": "Database seeded successfully!"}
+    except Exception as e:
+        return {"error": str(e)}
      
 @app.post("/auth/login", response_model=schemas.TokenOut)
 def login(credentials: schemas.UserLogin, db: Session = Depends(get_db)):
