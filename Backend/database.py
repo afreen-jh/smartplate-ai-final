@@ -17,3 +17,18 @@ engine = create_engine(
 )
 SessionLocal = sessionmaker(autocommit=False, autoflush=False, bind=engine)
 Base = declarative_base()
+# Auto-seed database on startup for free Render tier
+try:
+    from sqlalchemy import inspect
+    inspector = inspect(engine)
+    if "users" in inspector.get_table_names():
+        db = SessionLocal()
+        # Check if users table is empty, then run seeds
+        from models import User
+        if db.query(User).count() == 0:
+            import subprocess
+            subprocess.run(["python", "seed_data.py"])
+            subprocess.run(["python", "seed_predictions.py"])
+        db.close()
+except Exception as e:
+    print("Auto-seed notice:", e)
