@@ -172,13 +172,13 @@ def get_menu_planner(db: Session = Depends(get_db)):
         consumption_rows = db.execute(
             select(models.ConsumptionRecord).where(models.ConsumptionRecord.item_id == item.id)
         ).scalars().all()
-
+        
         total_wasted = sum(float(r.quantity_wasted) for r in consumption_rows)
         total_consumed = sum(float(r.quantity_consumed) for r in consumption_rows)
         total = total_wasted + total_consumed
-
-        variance = -round(item.base_plate_count * (total_wasted / total) * 0.5) if total > 0 else 0
-
+        
+        variance = round(item.base_plate_count * (total_wasted / total) * 0.5) if total > 0 else 0
+        
         result.append(schemas.MenuPlannerItem(
             id=item.id,
             name=item.name,
@@ -231,6 +231,7 @@ def signup(user: schemas.UserSignup, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
 
+    # Trigger seeding if menu items table is empty
     if db.query(models.MenuItem).count() == 0:
         import subprocess
         try:
@@ -240,7 +241,7 @@ def signup(user: schemas.UserSignup, db: Session = Depends(get_db)):
             print("Seeding error:", e)
 
     token = create_access_token(sub=new_user.email)
-    return schemas.TokenOut(access_token=token, user=new_user) 
+    return schemas.TokenOut(access_token=token, user=new_user)
 
 @app.post("/auth/login", response_model=schemas.TokenOut)
 def login(credentials: schemas.UserLogin, db: Session = Depends(get_db)):
