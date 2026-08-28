@@ -249,8 +249,7 @@ def signup(user: schemas.UserSignup, db: Session = Depends(get_db)):
 @app.get("/admin/seed-db")
 def trigger_seed(db: Session = Depends(get_db)):
     try:
-        from seed_data import run_seed
-        run_seed()
+        import seed_data
         return {"message": "Database seeded successfully!"}
     except Exception as e:
         return {"error": str(e)}
