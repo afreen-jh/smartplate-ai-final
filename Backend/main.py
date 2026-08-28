@@ -168,7 +168,7 @@ def get_insights(db: Session = Depends(get_db)):
     df = build_dataframe(db)
     if df.empty:
         return {}
-    return waste_module.compute_summary(df)s
+    return waste_module.compute_summary(df)
 
 @app.get("/menu-planner", response_model=list[schemas.MenuPlannerItem])
 def get_menu_planner(db: Session = Depends(get_db)):
