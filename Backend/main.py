@@ -237,18 +237,16 @@ def signup(user: schemas.UserSignup, db: Session = Depends(get_db)):
     db.commit()
     db.refresh(new_user)
 
-    # Trigger seeding if menu items table is empty
     if db.query(models.MenuItem).count() == 0:
-        import subprocess
         try:
-            subprocess.run(["python", "seed_data.py"])
-            subprocess.run(["python", "seed_predictions.py"])
+            from seed_data import run_seed
+            run_seed()
         except Exception as e:
             print("Seeding error:", e)
 
     token = create_access_token(sub=new_user.email)
     return schemas.TokenOut(access_token=token, user=new_user)
-
+     
 @app.post("/auth/login", response_model=schemas.TokenOut)
 def login(credentials: schemas.UserLogin, db: Session = Depends(get_db)):
     user = db.execute(select(models.User).where(models.User.email == credentials.email)).scalar_one_or_none()
