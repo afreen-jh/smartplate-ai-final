@@ -37,16 +37,15 @@ for i in range(7):
         db.add(session)
         db.commit()
         db.refresh(session)
-
+        
         relevant_items = [it["name"] for it in items_data if it["category"] == meal]
         for name in relevant_items:
             prepared = random.randint(30, 60)
             wasted = random.randint(2, 10)
             consumed = prepared - wasted
-
+            
             db.add(models.PrepRecord(session_id=session.id, item_id=item_ids[name], quantity_prepared=prepared))
-            db.add(models.ConsumptionRecord(session_id=session.id, item_id=item_ids[name], quantity_consumed=consumed, quantity_wasted=wasted))
-        db.commit()
+            db.add(models.ConsumptionRecord(session_id=session.id, item_id=item_ids[name], quantity_consumed=consumed))
+            db.commit()
 
-print("✅ Sample data seeded successfully!")
-db.close()
+print("Sample data seeded successfully!")
