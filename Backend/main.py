@@ -156,13 +156,19 @@ def get_dashboard_summary(db: Session = Depends(get_db)):
             "efficiencyStatus": "No Data"
         }
     return waste_module.compute_summary(df)
-
 @app.get("/alerts")
 def get_alerts(db: Session = Depends(get_db)):
     df = build_dataframe(db)
     if df.empty:
         return []
     return waste_module.generate_alerts(df)
+
+@app.get("/insights")
+def get_insights(db: Session = Depends(get_db)):
+    df = build_dataframe(db)
+    if df.empty:
+        return {}
+    return waste_module.compute_summary(df)s
 
 @app.get("/menu-planner", response_model=list[schemas.MenuPlannerItem])
 def get_menu_planner(db: Session = Depends(get_db)):
