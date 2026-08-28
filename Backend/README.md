@@ -20,7 +20,7 @@ DATABASE_URL=your_postgresql_connection_string
 Run the server:
 uvicorn main:app
 
-API docs available at http://127.0.0.1:8000/docs
+API docs available at http://smartplate-ai-final.onrender.com/docs
 
 ## Endpoints
 - `/menu` — manage menu items

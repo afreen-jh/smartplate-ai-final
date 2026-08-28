@@ -12,7 +12,7 @@ export default function DemandChart() {
   ]);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/predictions/forecast')
+    fetch('http://smartplate-ai-final.onrender.com/predictions/forecast')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch forecast');
         return res.json();

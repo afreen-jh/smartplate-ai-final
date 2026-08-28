@@ -30,7 +30,7 @@ export default function AlertsView() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/alerts')
+    fetch('http://smartplate-ai-final.onrender.com/alerts')
       .then(res => res.json())
       .then(data => {
         setAlerts(data);

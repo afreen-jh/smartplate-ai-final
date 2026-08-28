@@ -6,7 +6,7 @@ export default function AnalyticsView() {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    fetch('http://127.0.0.1:8000/analytics/insights')
+    fetch('http://smartplate-ai-final.onrender.com/analytics/insights')
       .then(res => res.json())
       .then(data => {
         setInsights(data);
