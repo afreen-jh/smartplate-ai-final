@@ -1,1 +1,1 @@
-export const API_URL = import.meta.env.VITE_BACKEND_URL || 'https://smartplate-ai-final.onrender.com';
+export const API_URL = 'https://smartplate-ai-final.onrender.com';
