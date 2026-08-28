@@ -24,7 +24,7 @@ export default function AlertsPanel() {
   ]);
 
   useEffect(() => {
-    fetch('http://smartplate-ai-final.onrender.com/alerts')
+    fetch('https://smartplate-ai-final.onrender.com/alerts')
       .then((res) => {
         if (!res.ok) throw new Error('Failed to fetch alerts');
         return res.json();

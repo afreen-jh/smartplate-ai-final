@@ -16,7 +16,7 @@ import SettingsView from './components/SettingsView';
 import Sidebar from './components/Sidebar';
 
 export default function App() {
-  const API_URL = import.meta.env.VITE_BACKEND_URL || 'http://smartplate-ai-final.onrender.com';
+  const API_URL = import.meta.env.VITE_BACKEND_URL || 'https://smartplate-ai-final.onrender.com';
 
   // Authentication & Navigation States
   const [isAuthenticated, setIsAuthenticated] = useState(false);

@@ -60,7 +60,7 @@ Run the server:
 uvicorn main:app
 ```
 
-API docs available at http://smartplate-ai-final.onrender.com/docs
+API docs available at https://smartplate-ai-final.onrender.com/docs
 
 ## Running the Frontend
 

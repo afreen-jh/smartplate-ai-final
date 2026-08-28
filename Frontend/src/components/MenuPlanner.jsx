@@ -7,7 +7,7 @@ export default function MenuPlanner() {
   const [saving, setSaving] = useState(false);
 
   const fetchMenuPlanner = () => {
-    fetch('http://smartplate-ai-final.onrender.com/menu-planner')
+    fetch('https://smartplate-ai-final.onrender.com/menu-planner')
       .then(res => res.json())
       .then(data => {
         setMenuData(data);
@@ -34,7 +34,7 @@ export default function MenuPlanner() {
     try {
       await Promise.all(
         menuData.map(item =>
-          fetch(`http://smartplate-ai-final.onrender.com/menu-planner/${item.id}`, {
+          fetch(`https://smartplate-ai-final.onrender.com/menu-planner/${item.id}`, {
             method: 'PUT',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify({ base_plate_count: Number(item.base_plate_count) })
