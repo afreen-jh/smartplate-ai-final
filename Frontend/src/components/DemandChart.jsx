@@ -56,7 +56,7 @@ export default function DemandChart() {
       </div>
 
       {/* Bar Chart Visualization */}
-      <div className="h-64 flex items-end justify-between gap-2 pt-8 pb-2 border-b border-slate-800/80 px-2">
+      <div className="relative h-64 overflow-hidden flex items-end justify-between gap-2 pt-8 pb-2 border-b border-slate-800">
         {weeklyForecast.map((item, idx) => {
           const actualHeight = `${(item.actual / maxVal) * 100}%`;
           const forecastHeight = `${(item.forecast / maxVal) * 100}%`;
