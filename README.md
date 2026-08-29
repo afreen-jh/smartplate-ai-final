@@ -1,6 +1,17 @@
-# SmartPlate AI — Food Waste Intelligence System
+<div align="center">
 
-An AI-powered platform for college canteens and hostel messes that predicts meal demand, detects food waste anomalies, and helps kitchen staff plan production more efficiently — reducing over-preparation and unnecessary waste.
+# 🍽️ SmartPlate AI — Food Waste Intelligence System
+
+An AI-powered platform tailored for college canteens and hostel messes that predicts meal demand, detects food waste anomalies, and optimizes kitchen production.
+
+[![Status](https://img.shields.io/badge/Status-Live%20on%20Vercel-success?style=for-the-badge&logo=vercel)](https://smartplate-ai-final.vercel.app)
+[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
+[![React](https://img.shields.io/badge/Frontend-React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
+[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+
+[**✨ Explore Live Demo**](https://smartplate-ai-final.vercel.app) · [**📖 API Documentation**](https://smartplate-ai-final.onrender.com/docs)
+
+</div>
 
 ## What It Does
 
