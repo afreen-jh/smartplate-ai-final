@@ -1,35 +1,21 @@
-<div align="center">
+# SmartPlate AI — Food Waste Intelligence System
 
-# 🍽️ SmartPlate AI — Food Waste Intelligence System
+An AI-powered platform for college canteens and hostel messes that predicts meal demand, detects food waste anomalies, and helps kitchen staff plan production more efficiently — reducing over-preparation and unnecessary waste.
 
-An AI-powered platform tailored for college canteens and hostel messes that predicts meal demand, detects food waste anomalies, and optimizes kitchen production.
+## What It Does
 
-[![Status](https://img.shields.io/badge/Status-Live%20on%20Vercel-success?style=for-the-badge&logo=vercel)](https://smartplate-ai-final.vercel.app)
-[![FastAPI](https://img.shields.io/badge/Backend-FastAPI-005571?style=for-the-badge&logo=fastapi)](https://fastapi.tiangolo.com/)
-[![React](https://img.shields.io/badge/Frontend-React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB)](https://react.dev/)
-[![PostgreSQL](https://img.shields.io/badge/Database-PostgreSQL-316192?style=for-the-badge&logo=postgresql&logoColor=white)](https://www.postgresql.org/)
+- Predicts demand for upcoming meals using a trained machine learning model, so kitchens prepare closer to what's actually needed
+- Detects waste anomalies in real time using Isolation Forest, flagging unusual over-preparation or waste patterns
+- Tracks preparation, consumption, and waste across meals and menu items
+- Recommends production adjustments per dish based on historical waste data
+- Provides a live dashboard for kitchen managers to monitor and act on insights
 
-[**✨ Explore Live Demo**](https://smartplate-ai-final.vercel.app) · [**📖 API Documentation**](https://smartplate-ai-final.onrender.com/docs)
+## Architecture
 
-</div>
-
----
-
-## 🚀 What It Does
-
-* Predicts demand for upcoming meals using a trained machine learning model, so kitchens prepare closer to what's actually needed.
-* Detects waste anomalies in real time using Isolation Forest, flagging unusual over-preparation or waste patterns.
-* Tracks preparation, consumption, and waste across meals and menu items.
-* Recommends production adjustments per dish based on historical waste data.
-* Provides a live dashboard for kitchen managers to monitor and act on insights.
-
----
-
-## 🏛️ Architecture
-
-```text
+```
 React Frontend  --->  FastAPI Backend + ML Modules  --->  PostgreSQL (Neon)
-  (Dashboard)   <---          (API & Logic)         <---    (Database)
+   (Dashboard)  <---        (API + Logic)            <---     (Database)
+```
 
 ## Team
 
@@ -74,7 +60,7 @@ Run the server:
 uvicorn main:app
 ```
 
-API docs available at https://smartplate-ai-final.onrender.com/docs
+API docs available at http://127.0.0.1:8000/docs
 
 ## Running the Frontend
 
